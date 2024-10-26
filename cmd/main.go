@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	c := configs.LoadConfig("..")
+	c := configs.LoadConfig(".")
 	ws := webserver.NewWebServer(c.Port)
 	cepClient := viacepclient.NewViaCepClient(c)
 	weatherClient := weatherclient.NewWeatherClient(c)

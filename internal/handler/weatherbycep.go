@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+//go:generate mockery --all --case=underscore --disable-version-string
 type WeatherByCepHandler interface {
 	Handle(w http.ResponseWriter, r *http.Request)
 }

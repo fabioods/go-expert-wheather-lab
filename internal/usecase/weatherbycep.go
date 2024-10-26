@@ -20,6 +20,7 @@ type OutputDTO struct {
 	KelvinTemperature     float64 `json:"kelvin_temperature"`
 }
 
+//go:generate mockery --all --case=underscore --disable-version-string
 type WeatherByCepUseCase interface {
 	Execute(context context.Context, input InputDTO) (OutputDTO, error)
 }

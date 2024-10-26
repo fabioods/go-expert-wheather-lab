@@ -4,6 +4,7 @@ import (
 	"context"
 )
 
+//go:generate mockery --all --case=underscore --disable-version-string
 type CepClient interface {
 	AddressByCep(ctx context.Context, cep string) (string, error)
 }
