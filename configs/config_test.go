@@ -15,7 +15,7 @@ func TestLoadConfig(t *testing.T) {
 	assert.Equal(t, "https://api.weatherapi.com/v1/current.json", cfg.WeatherApiURL)
 	assert.Equal(t, 5000, cfg.WeatherApiTimeout)
 	assert.Equal(t, "X", cfg.WeatherApiKey)
-	assert.Equal(t, ":8080", cfg.Port)
+	assert.Equal(t, "8080", cfg.Port)
 }
 
 func TestLoadConfigWithMissingEnvVars(t *testing.T) {

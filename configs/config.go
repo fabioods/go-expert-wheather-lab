@@ -26,5 +26,8 @@ func LoadConfig(path string) *Config {
 	if err != nil {
 		panic(err)
 	}
+	if cfg.Port == "" {
+		cfg.Port = "8080"
+	}
 	return cfg
 }

@@ -35,5 +35,8 @@ func (s *WebServer) Start() {
 		s.Router.Handle(path, handler)
 	}
 	fmt.Printf("Starting server on port %s\n", s.WebServerPort)
-	http.ListenAndServe(s.WebServerPort, s.Router)
+	err := http.ListenAndServe(":"+s.WebServerPort, s.Router)
+	if err != nil {
+		panic(err)
+	}
 }

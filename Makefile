@@ -2,6 +2,8 @@ PKG := $(shell go list ./...)
 COVERAGE_FILE := coverage.out
 COVERAGE_HTML := coverage.html
 
+.PHONY: test coverage coverage-html clean
+
 test:
 	go test -v -cover -coverprofile=$(COVERAGE_FILE) $(PKG)
 
@@ -14,3 +16,6 @@ coverage-html: test
 
 clean:
 	rm -f $(COVERAGE_FILE) $(COVERAGE_HTML)
+
+start:
+	go run ./cmd/main.go

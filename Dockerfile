@@ -1,12 +1,15 @@
-# Etapa de build
-FROM golang:1.23.2-alpine AS build
-WORKDIR /app
-COPY . .
-RUN go mod download
-RUN go build -o weather ./cmd
+# Use uma imagem do Go para desenvolvimento e execução
+FROM golang:1.23.2-alpine
 
-# Etapa de execução
-FROM alpine:latest
+# Defina o diretório de trabalho dentro do container
 WORKDIR /app
-COPY --from=build /app/weather .
-ENTRYPOINT ["./weather"]
+
+# Copie o código-fonte para o container
+COPY . .
+
+# Baixe as dependências
+RUN go mod download
+
+# Use `go run` para executar o projeto
+ENTRYPOINT ["go", "run", "./cmd"]
+EXPOSE 8080
